@@ -2,7 +2,29 @@
 <html>
 <head> 
   <title>html_test</title>
-    
+  <style>
+    div {
+        width: 100%;
+        height: 300px;
+        
+        border: 1px solid #000;
+    }
+    div.left {
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        
+        background: #ff0;
+    }
+    div.right {
+        width: 50%;
+        float: right;
+        box-sizing: border-box;
+        
+        background: #0ff;
+    }
+    </style>
+  
 </head>
 <body>
     
@@ -98,6 +120,12 @@ firebase.database().ref("coin/morning_sec").once('value')
       { margin: { t: 0 } }
     );
 </script>
+<div>
+        <div class="left"></div>
+        <div class="right"></div>
+</div>
+
+	
 	
     
     
