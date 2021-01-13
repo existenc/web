@@ -132,8 +132,8 @@ firebase.database().ref("coin/morning_sec").once('value')
 			
 			
 	  
-<div>
-	<div>
+<div id="div_graph">
+	<div id="row1">
 	  <div class="left2" id="graph1"></div>
 	  <div class="left1" id="graph2"></div>
 	  <div class="mid" id="graph3"></div>
@@ -141,14 +141,28 @@ firebase.database().ref("coin/morning_sec").once('value')
 	  <div class="right2" id="graph5"></div>
 	</div>
 
-	<div>
+	<div id="row2">
 	  <div class="left2" id="graph6"></div>
 	  <div class="left1" id="graph7"></div>
 	  <div class="mid" id="graph8"></div>
 	  <div class="right1" id="graph9"></div>
-	  <div class="right2" id="graph10"></div>
+<!-- 	  <div class="right2" id="graph10"></div> -->
 	</div>	
 </div>
+
+<script>
+// auto gen div_graph child	
+var div_cnt = 9;
+var div = document.createElement('div');
+//div.innerHTML = document.getElementById('room_type').innerHTML;	
+div.innerHTML = '<div class="right2" id="graph10"></div>';		
+document.getElementById('row2').appendChild(div);
+
+
+	
+	
+	
+</script>	
 	
 	
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
