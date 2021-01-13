@@ -35,11 +35,22 @@ var config = {
 	storageBucket: "bucket.appspot.com"
 };
 firebase.initializeApp(config);
-
 // Get a reference to the database service
 var database = firebase.database();
 </script>
-
+	  
+<script>
+//https://myfirebase-4c4b9.firebaseio.com/	
+firebase.database().ref("https://myfirebase-4c4b9.firebaseio.com/coin/morning_sec").once('value')
+  .then((dataSnapshot) => {
+    let desiredValue = dataSnapshot.val();
+    console.log("Desired value: ", desiredValue);
+  })
+  .catch((error) => {
+    console.log("An error occurred:", error);
+  })
+	
+</script>
 
 <script>
 	var chatArea = document.getElementById("chatArea");
