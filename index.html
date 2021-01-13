@@ -79,7 +79,7 @@ firebase.database().ref("coin/morning_sec").once('value')
     console.log("Desired value: ", desiredValue);
   })
   .catch((error) => {
-    console.log("An error occurred:", error);
+    console.log("An error occurred:zzz", error);
   })
 	
 </script>
@@ -183,13 +183,13 @@ firebase.database().ref("coin/morning_sec").once('value')
 			}
 			
 			
-			function onclick_read_data(datetoday) {  //읽기
-				database.ref("coin/"+datetoday).once('value').then((snapshot) {
-					  tempdata = snapshot.val();
-						console.log(snapshot.val());
- 						showMsg(snapshot.val());
-       				 });
-			}
+// 			function onclick_read_data(datetoday) {  //읽기
+// 				database.ref("coin/"+datetoday).once('value').then((snapshot) {
+// 					  tempdata = snapshot.val();
+// 						console.log(snapshot.val());
+//  						showMsg(snapshot.val());
+//        				 });
+// 			}
 </script>
 			
 			
