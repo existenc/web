@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title>우하하</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+  </head>
+  <body>
+    
+    <button>클릭</button>
+    <br>
+    <a href="/page1.html">구글로 이동</a>
+    <br>
+    <img src="https://lh3.googleusercontent.com/proxy/f60_aYdRnxJUM9aS3ZfTrgajgkKprMjgUQSQVR4ATgaLMDpyvJEq4EQUzCiyiafmk-lQ8X1XWU45lrwOnxCwiN_82xRfu2381iX8ZgCqE_PTbBOpR4MiU9z2qGs0ZrNSQ8zFD3UsPosXiIShExA5a18u8V1zveUGbfVHwPZxHpAyWH0RfBn7UFFeKTZwmixvRzEFhGl6UevlPE4zFfhnjdo" alt="이미지가 없다" width="200">
+    <br>
+
+
+    <table border="1">
+      <tr>
+        <th>Month</th>
+        <th>Savings</th>
+      </tr>
+      <tr>
+        <td>January</td>
+        <td>$100</td>
+      </tr>
+    </table>
+
+    <form action="/action_page.php">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    
+    <span class="name">박종석</span>
+    <span class="name">서태영</span>
+    <span id="namearea">서태영</span>
+    
+    <button onclick="changename('박종석')">박종석으로 변경</button>
+    <button onclick="changename('서태영')">서태영으로 변경</button>
+    
+
+    <script>
+      // var names = document.getElementsByClassName("name");
+      var namearea = document.getElementById("namearea");
+      function changename(name){
+        document.getElementsByClassName("name")[0].innerHTML=name; 
+        namearea.innerHTML=name;
+      }
+    </script>
+    
+    
+    
+    
+    //modify
+    <div id="chatArea">
+			
+		</div>
+
+		<script src="/__/firebase/7.14.4/firebase-app.js"></script>
+		<script src="/__/firebase/7.14.4/firebase-auth.js"></script>
+		<script src="/__/firebase/7.14.4/firebase-database.js"></script>
+		<script src="/__/firebase/7.14.4/firebase-analytics.js"></script>
+		<script src="/__/firebase/init.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth__ko.js"></script>
+		<script>
+			var chatArea = document.getElementById("chatArea");
+			var database = firebase.database();
+			var tempdata;
+
+			document.addEventListener('DOMContentLoaded', function() {
+				
+				database.ref("chat/room2").on('value', function(snapshot) {
+					  tempdata = snapshot.val();
+						console.log(snapshot.val());
+						showMsg(snapshot.val());
+       				 });
+			});
+			
+			// Initialize the FirebaseUI Widget using Firebase.
+// 			var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// 			var uiConfig = {
+// 				callbacks: {
+// 					signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+// 						// User successfully signed in.
+// 						// Return type determines whether we continue the redirect automatically
+// 						// or whether we leave that to developer to handle.
+// 						console.log(authResult);
+// 						document.getElementById('contents').style.display = 'unset';
+// 						document.getElementById('name').innerText = authResult.user.displayName;
+// 						return false;
+// 					},
+// 					uiShown: function() {
+// 						// The widget is rendered.
+// 						// Hide the loader.
+// 						document.getElementById('loader').style.display = 'none';
+// 					}
+// 				},
+// 				// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+// 				signInFlow: 'popup',
+// 				credentialHelper : firebaseui.auth.CredentialHelper.NONE,
+// 				signInSuccessUrl: '<url-to-redirect-to-on-success>',
+// 				signInOptions: [
+// 					// Leave the lines as is for the providers you want to offer your users.
+// 					firebase.auth.EmailAuthProvider.PROVIDER_ID
+// 				],
+// 				// Terms of service url.
+// 				tosUrl: '<your-tos-url>',
+// 				// Privacy policy url.
+// 				privacyPolicyUrl: '<your-privacy-policy-url>'
+// 			};
+
+// 			ui.start('#firebaseui-auth-container', uiConfig);
+
+			function showMsg(data){
+				console.log("되남",data.length);
+				for (let index = 0; index < data.length; index++) {
+					console.log(data[index].displayName,data[index].msg);
+				}
+			}
+			
+// 			function logout() {
+// 				firebase.auth().signOut().then(function() {
+// 					// window.location = "/";
+// 					document.getElementById('contents').style.display = 'none';
+// 					ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
+// 					ui.start('#firebaseui-auth-container', uiConfig);
+// 				}).catch(function(error) {
+// 					console.log("Sign-out error", error.message);
+// 					alert("로그아웃중 에러가 발생 했습니다.");
+// 				});
+// 			}
+
+			//firebase.auth().currentUser.uid
+// 			function onclick_make_date(timestamp,msg) {  //업데이트
+// 				var datetoday = '20210111'; //오늘날짜만들기
+// 				database.ref("coin").child(datetoday).update({
+// 				  "datetoday" : datetoday,
+// 				  "msg" : msg,
+// 				}).then(function(){
+// 				  console.log("업데이트 성공!");
+// 				  // alert("업데이트 성공!!");
+// 				}).catch(function(error) {
+// 				  console.log("업데이트 실패");
+// 				  console.log(error);
+// 				  alert("업데이트 실패 T_T ");
+// 				});
+// 			}
+			
+			function onclick_add_data(datetoday, coin_name, price, timestamp) {  //추가
+				database.ref("coin").child("morning_sec").child(datetoday).child(timestamp).push({
+				  "coin_name" : coin_name,
+				  "price" : price,
+				}).then(function(){
+				  console.log("업데이트 성공!");
+				  // alert("업데이트 성공!!");
+				}).catch(function(error) {
+				  console.log("업데이트 실패");
+				  console.log(error);
+				  alert("업데이트 실패 T_T ");
+				});
+			}
+			
+			
+			function onclick_read_data(datetoday) {  //읽기
+				database.ref("coin/"+datetoday).once('value').then((snapshot) {
+					  tempdata = snapshot.val();
+						console.log(snapshot.val());
+// 						showMsg(snapshot.val());
+       				 });
+			}
+			
+			//1초당 data를 5초간 넣어보기
+			//웹에 표시 해보기
+			//그래프 
+			
+			//coin morning_sec 20210112 08:55:01 btc 300
+			//				 eth 400
+		//					 ada 200
+			//                      08:55:02
+			//             20210113
+			
+			
+			
+			
+			//find ENC disencript
+			
+			//sunutax input text 파일 
+			
+			//sunutax chart upload to github
+			<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+			<div id="tester" style="width:100%;height:250px;"></div>
+<script>
+    TESTER = document.getElementById('tester');
+    Plotly.plot( TESTER, [{
+      x: [1, 2, 3, 4, 5],
+      y: [1, 2, 4, 8, 16] }],
+      { margin: { t: 0 } }
+    );
+</script>
+
+		</script>
+    
+    
+    
+    
+  </body>
+</html>
