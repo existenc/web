@@ -2,16 +2,10 @@
 <html>
   <head> 
     <title>html_test</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+    
   </head>
   <body>
     
-    
-    
-    <img src="https://lh3.googleusercontent.com/proxy/f60_aYdRnxJUM9aS3ZfTrgajgkKprMjgUQSQVR4ATgaLMDpyvJEq4EQUzCiyiafmk-lQ8X1XWU45lrwOnxCwiN_82xRfu2381iX8ZgCqE_PTbBOpR4MiU9z2qGs0ZrNSQ8zFD3UsPosXiIShExA5a18u8V1zveUGbfVHwPZxHpAyWH0RfBn7UFFeKTZwmixvRzEFhGl6UevlPE4zFfhnjdo" alt="이미지가 없다" width="200">
-    <br>
-
-
     <table border="1">
       <tr>
         <th>Month</th>
@@ -23,48 +17,26 @@
       </tr>
     </table>
 
-    <form action="/action_page.php">
-      <label for="fname">First name:</label>
-      <input type="text" id="fname" name="fname"><br><br>
-      <label for="lname">Last name:</label>
-      <input type="text" id="lname" name="lname"><br><br>
-      <input type="submit" value="Submit">
-    </form>
-    
-    <span class="name">span test</span>
-    
-    
-    
 
-   
-    
-    
-    
-    
-    //modify
-    <div id="chatArea">
-			
-    </div>
+<script src="/__/firebase/7.14.4/firebase-app.js"></script>
+<script src="/__/firebase/7.14.4/firebase-auth.js"></script>
+<script src="/__/firebase/7.14.4/firebase-database.js"></script>
+<script src="/__/firebase/7.14.4/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth__ko.js"></script>
+<script>
+	var chatArea = document.getElementById("chatArea");
+	var database = firebase.database();
+	var tempdata;
 
-		<script src="/__/firebase/7.14.4/firebase-app.js"></script>
-		<script src="/__/firebase/7.14.4/firebase-auth.js"></script>
-		<script src="/__/firebase/7.14.4/firebase-database.js"></script>
-		<script src="/__/firebase/7.14.4/firebase-analytics.js"></script>
-		<script src="/__/firebase/init.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth__ko.js"></script>
-		<script>
-			var chatArea = document.getElementById("chatArea");
-			var database = firebase.database();
-			var tempdata;
+	document.addEventListener('DOMContentLoaded', function() {
 
-			document.addEventListener('DOMContentLoaded', function() {
-				
-				database.ref("chat/room2").on('value', function(snapshot) {
-					  tempdata = snapshot.val();
-						console.log(snapshot.val());
-						showMsg(snapshot.val());
-       				 });
-			});
+		database.ref("chat/room2").on('value', function(snapshot) {
+			  tempdata = snapshot.val();
+				console.log(snapshot.val());
+				showMsg(snapshot.val());
+		 });
+	});
 			
 			// Initialize the FirebaseUI Widget using Firebase.
 // 			var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -158,27 +130,22 @@
 // 						showMsg(snapshot.val());
        				 });
 			}
-			</script>
-			//1초당 data를 5초간 넣어보기
-			//웹에 표시 해보기
-			//그래프 
-			
-			//coin morning_sec 20210112 08:55:01 btc 300
-			//				 eth 400
-		//					 ada 200
-			//                      08:55:02
-			//             20210113
+</script>
 			
 			
 			
 			
-			//find ENC disencript
 			
-			//sunutax input text 파일 
 			
-			//sunutax chart upload to github
-			<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-			<div id="tester" style="width:100%;height:250px;"></div>
+			
+			
+			
+			
+			
+			
+	  
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="tester" style="width:100%;height:250px;"></div>
 <script>
     TESTER = document.getElementById('tester');
     Plotly.plot( TESTER, [{
