@@ -72,6 +72,7 @@ var database = firebase.database();
 </script> -->
 	  
 <script>
+var database = firebase.database();
 //https://myfirebase-4c4b9.firebaseio.com/	
 firebase.database().ref("coin/morning_sec").once('value')
   .then((dataSnapshot) => {
