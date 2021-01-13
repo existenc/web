@@ -6,6 +6,38 @@
   </head>
   <body>
     
+	  
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBGJNJX9QZ3Wenj59z5eXcHJYAH8KBPv6A",
+    authDomain: "myfirebase-4c4b9.firebaseapp.com",
+    databaseURL: "https://myfirebase-4c4b9.firebaseio.com",
+    projectId: "myfirebase-4c4b9",
+    storageBucket: "myfirebase-4c4b9.appspot.com",
+    messagingSenderId: "243418876581",
+    appId: "1:243418876581:web:26375ea5dd1831534fdb4c",
+    measurementId: "G-J4Q8VNFQH3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>		  
+	  
+	  
+	  
+	  
+	  
+	  
     <table border="1">
       <tr>
         <th>Month</th>
@@ -182,31 +214,7 @@ firebase.database().ref("https://myfirebase-4c4b9.firebaseio.com/coin/morning_se
       { margin: { t: 0 } }
     );
 </script>
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyBGJNJX9QZ3Wenj59z5eXcHJYAH8KBPv6A",
-    authDomain: "myfirebase-4c4b9.firebaseapp.com",
-    databaseURL: "https://myfirebase-4c4b9.firebaseio.com",
-    projectId: "myfirebase-4c4b9",
-    storageBucket: "myfirebase-4c4b9.appspot.com",
-    messagingSenderId: "243418876581",
-    appId: "1:243418876581:web:26375ea5dd1831534fdb4c",
-    measurementId: "G-J4Q8VNFQH3"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>		
+	
     
     
     
