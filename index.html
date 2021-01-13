@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head> 
-    <title>html_test</title>
+<head> 
+  <title>html_test</title>
     
-  </head>
-  <body>
+</head>
+<body>
     
 	  
 
@@ -36,10 +36,6 @@
 </script>		  
 	  
 	  
-	  
-	  
-	  
-	  
     <table border="1">
       <tr>
         <th>Month</th>
@@ -51,31 +47,9 @@
       </tr>
     </table>
 
-
-<!-- <script src="/__/firebase/7.14.4/firebase-app.js"></script>
-<script src="/__/firebase/7.14.4/firebase-auth.js"></script>
-<script src="/__/firebase/7.14.4/firebase-database.js"></script>
-<script src="/__/firebase/7.14.4/firebase-analytics.js"></script>
-<script src="/__/firebase/init.js"></script>
-<script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth__ko.js"></script> -->
-
-<!-- <script>
-// Set the configuration for your app
-// TODO: Replace with your project's config object
-var config = {
-	apiKey: "apiKey",
-	authDomain: "projectId.firebaseapp.com",
-	databaseURL: "https://databaseName.firebaseio.com",
-	storageBucket: "bucket.appspot.com"
-};
-firebase.initializeApp(config);
-// Get a reference to the database service
-var database = firebase.database();
-</script> -->
 	  
 <script>
-var database = firebase.database();
-//https://myfirebase-4c4b9.firebaseio.com/	
+var database = firebase.database();	
 firebase.database().ref("coin/morning_sec").once('value')
   .then((dataSnapshot) => {
     let desiredValue = dataSnapshot.val();
@@ -101,40 +75,6 @@ firebase.database().ref("coin/morning_sec").once('value')
 // 		 });
 // 	});
 			
-			// Initialize the FirebaseUI Widget using Firebase.
-// 			var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// 			var uiConfig = {
-// 				callbacks: {
-// 					signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-// 						// User successfully signed in.
-// 						// Return type determines whether we continue the redirect automatically
-// 						// or whether we leave that to developer to handle.
-// 						console.log(authResult);
-// 						document.getElementById('contents').style.display = 'unset';
-// 						document.getElementById('name').innerText = authResult.user.displayName;
-// 						return false;
-// 					},
-// 					uiShown: function() {
-// 						// The widget is rendered.
-// 						// Hide the loader.
-// 						document.getElementById('loader').style.display = 'none';
-// 					}
-// 				},
-// 				// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-// 				signInFlow: 'popup',
-// 				credentialHelper : firebaseui.auth.CredentialHelper.NONE,
-// 				signInSuccessUrl: '<url-to-redirect-to-on-success>',
-// 				signInOptions: [
-// 					// Leave the lines as is for the providers you want to offer your users.
-// 					firebase.auth.EmailAuthProvider.PROVIDER_ID
-// 				],
-// 				// Terms of service url.
-// 				tosUrl: '<your-tos-url>',
-// 				// Privacy policy url.
-// 				privacyPolicyUrl: '<your-privacy-policy-url>'
-// 			};
-
-// 			ui.start('#firebaseui-auth-container', uiConfig);
 
 // 			function showMsg(data){
 // 				console.log("되남",data.length);
@@ -143,67 +83,8 @@ firebase.database().ref("coin/morning_sec").once('value')
 // 				}
 // 			}
 			
-// 			function logout() {
-// 				firebase.auth().signOut().then(function() {
-// 					// window.location = "/";
-// 					document.getElementById('contents').style.display = 'none';
-// 					ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
-// 					ui.start('#firebaseui-auth-container', uiConfig);
-// 				}).catch(function(error) {
-// 					console.log("Sign-out error", error.message);
-// 					alert("로그아웃중 에러가 발생 했습니다.");
-// 				});
-// 			}
 
-			//firebase.auth().currentUser.uid
-// 			function onclick_make_date(timestamp,msg) {  //업데이트
-// 				var datetoday = '20210111'; //오늘날짜만들기
-// 				database.ref("coin").child(datetoday).update({
-// 				  "datetoday" : datetoday,
-// 				  "msg" : msg,
-// 				}).then(function(){
-// 				  console.log("업데이트 성공!");
-// 				  // alert("업데이트 성공!!");
-// 				}).catch(function(error) {
-// 				  console.log("업데이트 실패");
-// 				  console.log(error);
-// 				  alert("업데이트 실패 T_T ");
-// 				});
-// 			}
-			
-			function onclick_add_data(datetoday, coin_name, price, timestamp) {  //추가
-				database.ref("coin").child("morning_sec").child(datetoday).child(timestamp).push({
-				  "coin_name" : coin_name,
-				  "price" : price,
-				}).then(function(){
-				  console.log("업데이트 성공!");
-				  // alert("업데이트 성공!!");
-				}).catch(function(error) {
-				  console.log("업데이트 실패");
-				  console.log(error);
-				  alert("업데이트 실패 T_T ");
-				});
-			}
-			
-			
-// 			function onclick_read_data(datetoday) {  //읽기
-// 				database.ref("coin/"+datetoday).once('value').then((snapshot) {
-// 					  tempdata = snapshot.val();
-// 						console.log(snapshot.val());
-//  						showMsg(snapshot.val());
-//        				 });
-// 			}
 </script>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 	  
@@ -221,6 +102,5 @@ firebase.database().ref("coin/morning_sec").once('value')
     
     
     
-    
-  </body>
+</body>
 </html>
