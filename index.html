@@ -73,7 +73,7 @@ var database = firebase.database();
 	  
 <script>
 //https://myfirebase-4c4b9.firebaseio.com/	
-firebase.database().ref("https://myfirebase-4c4b9.firebaseio.com/coin/morning_sec").once('value')
+firebase.database().ref("coin/morning_sec").once('value')
   .then((dataSnapshot) => {
     let desiredValue = dataSnapshot.val();
     console.log("Desired value: ", desiredValue);
@@ -85,18 +85,18 @@ firebase.database().ref("https://myfirebase-4c4b9.firebaseio.com/coin/morning_se
 </script>
 
 <script>
-	var chatArea = document.getElementById("chatArea");
-	var database = firebase.database();
-	var tempdata;
+// 	var chatArea = document.getElementById("chatArea");
+// 	var database = firebase.database();
+// 	var tempdata;
 
-	document.addEventListener('DOMContentLoaded', function() {
+// 	document.addEventListener('DOMContentLoaded', function() {
 
-		database.ref("chat/room2").on('value', function(snapshot) {
-			  tempdata = snapshot.val();
-				console.log(snapshot.val());
-				showMsg(snapshot.val());
-		 });
-	});
+// 		database.ref("chat/room2").on('value', function(snapshot) {
+// 			  tempdata = snapshot.val();
+// 				console.log(snapshot.val());
+// 				showMsg(snapshot.val());
+// 		 });
+// 	});
 			
 			// Initialize the FirebaseUI Widget using Firebase.
 // 			var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -187,7 +187,7 @@ firebase.database().ref("https://myfirebase-4c4b9.firebaseio.com/coin/morning_se
 				database.ref("coin/"+datetoday).once('value').then((snapshot) {
 					  tempdata = snapshot.val();
 						console.log(snapshot.val());
-// 						showMsg(snapshot.val());
+ 						showMsg(snapshot.val());
        				 });
 			}
 </script>
