@@ -183,21 +183,6 @@ var layout = {
     t: 45,
     pad: 4
   },
-//   shapes: [
-//     {
-//         type: 'line',
-//         xref: 'paper',
-//         x0: 0,
-//         y0: 3.0,
-//         x1: 1,
-//         y1: 3.0,
-//         line:{
-//             color: 'rgb(255, 0, 0)',
-//             width: 4,
-//             dash:'dot'
-//         }
-//     }
-//   ]
 };
 var trace1 = {
   type: 'line',
@@ -210,21 +195,20 @@ var trace1 = {
       }
   }
 };
-layout.shapes = 	[
-    {
-        type: 'line',
-        xref: 'paper',
-        x0: 0,
-        y0: 3.0,
-        x1: 1,
-        y1: 3.0,
-        line:{
-            color: 'rgb(255, 0, 0)',
-            width: 2,
-//             dash:'dot'
-        }
-    }
-  ];
+// layout.shapes = [
+//     {
+//         type: 'line',
+//         xref: 'paper',
+//         x0: 0,
+//         y0: 3.0,
+//         x1: 1,
+//         y1: 3.0,
+//         line:{
+//             color: 'rgb(255, 0, 0)',
+//             width: 2,
+//         }
+//     }
+//   ];
 
 	
 //for each item
@@ -238,6 +222,22 @@ for (step = 0; step < div_cnt; step++) {
 	trace1.x = timearr;
 	trace1.y = dataarr;	
 	var data = [ trace1 ];
+	if(i/2==1){
+	  layout.shapes = [
+	    {
+		type: 'line',
+		xref: 'paper',
+		x0: 0,
+		y0: 3.0,
+		x1: 1,
+		y1: 3.0,
+		line:{
+		    color: 'rgb(255, 0, 0)',
+		    width: 2,
+		}
+	    }
+	  ];
+	}
 	Plotly.newPlot('graph'+(step+1), data, layout, config );		
 }	
 </script>	
