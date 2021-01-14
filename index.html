@@ -213,6 +213,8 @@ var trace1 = {
 	
 //for each item
 var step;
+var hor_line1 = [5, 10, 2, 8,2,3,4,5,6,7,8,1,2,3,1,5,7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1];
+var hor_line2 = [5, 10, 2, 8,2,3,4,5,6,7,8,1,2,3,1,5,7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1];	
 for (step = 0; step < div_cnt; step++) {  
    	 //for each
 	//1.data 2.layout title 3.graph div id 	
@@ -222,8 +224,31 @@ for (step = 0; step < div_cnt; step++) {
 	trace1.x = timearr;
 	trace1.y = dataarr;	
 	var data = [ trace1 ];
-	if(step/2==1){
-	  layout.shapes = [
+// 	if(step/2==1){
+// 	  layout.shapes = [
+// 	    {
+// 		type: 'line',
+// 		xref: 'paper',
+// 		x0: 0,
+// 		y0: 3.0,
+// 		x1: 1,
+// 		y1: 3.0,
+// 		line:{
+// 		    color: 'rgb(255, 0, 0)',
+// 		    width: 2,
+// 		}
+// 	    }
+// 	  ];
+// 	}
+        draw_hor_line(3);
+	Plotly.newPlot('graph'+(step+1), data, layout, config );		
+}
+	
+function draw_hor_line(number) {
+  if( !number ){  //비어있음
+     layout.shapes = [];  
+  }else{  //값이 있음
+     layout.shapes = [
 	    {
 		type: 'line',
 		xref: 'paper',
@@ -237,8 +262,7 @@ for (step = 0; step < div_cnt; step++) {
 		}
 	    }
 	  ];
-	}
-	Plotly.newPlot('graph'+(step+1), data, layout, config );		
+  }
 }	
 </script>	
 	
