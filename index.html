@@ -183,7 +183,34 @@ var layout = {
     t: 45,
     pad: 4
   },
-  shapes: [
+//   shapes: [
+//     {
+//         type: 'line',
+//         xref: 'paper',
+//         x0: 0,
+//         y0: 3.0,
+//         x1: 1,
+//         y1: 3.0,
+//         line:{
+//             color: 'rgb(255, 0, 0)',
+//             width: 4,
+//             dash:'dot'
+//         }
+//     }
+//   ]
+};
+var trace1 = {
+  type: 'line',
+//   x: timearr,	
+//   y: dataarr,
+  marker: {
+      color: '#C8A2C8',
+      line: {
+          width: 2.5
+      }
+  }
+};
+layout.shape = 	[
     {
         type: 'line',
         xref: 'paper',
@@ -197,20 +224,7 @@ var layout = {
             dash:'dot'
         }
     }
-  ]
-};
-var trace1 = {
-  type: 'line',
-//   x: timearr,	
-//   y: dataarr,
-  marker: {
-      color: '#C8A2C8',
-      line: {
-          width: 2.5
-      }
-  }
-};
-	
+  ];
 
 	
 //for each item
