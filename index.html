@@ -240,12 +240,12 @@ for (step = 0; step < div_cnt; step++) {
 // 	    }
 // 	  ];
 // 	}
-        draw_hor_line(hor_line1[step]);
+        draw_hor_line(hor_line1[step][0],hor_line1[step][1]);
 	Plotly.newPlot('graph'+(step+1), data, layout, config );		
 }
 	
-function draw_hor_line(number) {
-  if( (!number[0])||(number[0]==0) ){  //비어있음
+function draw_hor_line(number1,number2) {
+  if( (!number1)||(number1==0) ){  //비어있음
      layout.shapes = [];  
   }else{  //값이 있음
      layout.shapes = [
@@ -253,9 +253,9 @@ function draw_hor_line(number) {
 		type: 'line',
 		xref: 'paper',
 		x0: 0,
-		y0: number[0],
+		y0: number1,
 		x1: 1,
-		y1: number[0],
+		y1: number1,
 		line:{
 		    color: 'rgb(255, 0, 0)',
 		    width: 2,
@@ -265,9 +265,9 @@ function draw_hor_line(number) {
 		type: 'line',
 		xref: 'paper',
 		x0: 0,
-		y0: number[1],
+		y0: number2,
 		x1: 1,
-		y1: number[1],
+		y1: number2,
 		line:{
 		    color: 'rgb(255, 0, 0)',
 		    width: 2,
