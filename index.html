@@ -9,28 +9,28 @@
         
         border: 1px solid #000;
     }
-    div.left2 {
+    div.col1 {
         width: 20%;
         float: left;
         box-sizing: border-box;
         
         background: #dcdcdc;
     }
-    div.left1 {
+    div.col2 {
         width: 20%;
         float: left;
         box-sizing: border-box;
         
         background: #fffaf0;
     }
-    div.mid {
+    div.col3 {
         width: 20%;
         float: left;
         box-sizing: border-box;
         
         background: #dcdcdc;
     }
-    div.right1 {
+    div.col4 {
         width: 20%;
         float: left;
         box-sizing: border-box;
@@ -38,7 +38,7 @@
         background: #fffaf0;
     }
 	  
-    div.right2 {
+    div.col5 {
         width: 20%;
         float: left;
         box-sizing: border-box;
@@ -133,7 +133,7 @@ firebase.database().ref("coin/morning_sec").once('value')
 			
 	  
 <div id="div_graph">
-	<div id="row1">
+<!-- 	<div id="row1">
 	  <div class="left2" id="graph1"></div>
 	  <div class="left1" id="graph2"></div>
 	  <div class="mid" id="graph3"></div>
@@ -146,17 +146,44 @@ firebase.database().ref("coin/morning_sec").once('value')
 	  <div class="left1" id="graph7"></div>
 	  <div class="mid" id="graph8"></div>
 	  <div class="right1" id="graph9"></div>
-<!-- 	  <div class="right2" id="graph10"></div> -->
-	</div>	
+	  <div class="right2" id="graph10"></div>
+	</div>	 -->
 </div>
 
 <script>
 // auto gen div_graph child	
 var div_cnt = 9;
-var div = document.createElement('div');
-//div.innerHTML = document.getElementById('room_type').innerHTML;	
-div.innerHTML = '<div class="right2" id="graph10"></div>';		
-document.getElementById('row2').appendChild(div);
+var row_num = Math.ceil(div_cnt/5); //2
+var row_resi = div_cnt % 5; //4
+var step;
+for (step = 0; step < row_num; step++) {
+  var div = document.createElement('div');
+  div.setAttribute("id", "row"+(step+1));
+  //div.className = 'col'+(step1+1);	
+  document.getElementById('div_graph').appendChild(div);	
+  if((step+1)==row_num){ //has less than 5 column
+     var step1;
+     for (step1 = 0; step1 < row_resi; step1++) {
+     var div = document.createElement('div');
+     div.setAttribute("id", "graph"+(step*5+step1+1));
+     div.className = 'col'+(step1+1);	     
+     //div.innerHTML = document.getElementById('room_type').innerHTML;	
+     //div.innerHTML = '<div class="right2" id="graph10"></div>';		
+     document.getElementById('row'+(step+1)).appendChild(div);
+  }
+  else{  //has 5 column
+     var step1;
+     for (step1 = 0; step1 < 5; step1++) {
+     var div = document.createElement('div');
+     div.setAttribute("id", "graph"+(step*5+step1+1));
+     div.className = 'col'+(step1+1);	     
+     //div.innerHTML = document.getElementById('room_type').innerHTML;	
+     //div.innerHTML = '<div class="right2" id="graph10"></div>';		
+     document.getElementById('row'+(step+1)).appendChild(div);
+   }
+  }   
+}	
+
 
 
 	
