@@ -190,21 +190,7 @@ for (step = 0; step < row_num; step++) {
 	
 //common	
 var config = {responsive: true}
-	
-// var layout = { 
-//   title: 'BTC',
-//   font: {size: 9},
-//   margin: {
-//     l: 25,
-//     r: 25,
-//     b: 25,
-//     t: 45,
-//     pad: 4
-//   },	
-// };
-
 var layout = { 
- 
   font: {size: 9},
   margin: {
     l: 25,
@@ -216,7 +202,7 @@ var layout = {
 };	
 	
 
-layout.title = 'BTC';	
+
 
 //for each
 //1.data 2.layout title 3.graph div id 	
@@ -231,12 +217,14 @@ var trace1 = {
       }
   }
 };
-
+layout.title = 'BTC'+div_cnt;	
 var data = [ trace1 ];
 
 
 
 Plotly.newPlot('graph1', data, layout, config );
+
+	
 </script>	
 	
     
