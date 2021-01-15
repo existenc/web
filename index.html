@@ -214,15 +214,22 @@ var trace1 = {
 //for each item
 var step;
 var hor_line1 = [[1,2],[2,7], [0,0], [2,6],[2,7],[4,7],[2,7]];
-	
-for (step = 0; step < div_cnt; step++) {  
+var timearr = [1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27];
+var dataarr = new Array(); 
+var btc_pr = [5, 10, 2, 8,2,3,4,5,6,7,8,1,2,3,1,5,7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1];
+var eth_pr = [4,5,6,7,8,1,2,3,1,5,7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1,5, 10, 2, 8,2,3];
+var alt_pr = [7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1,5, 10, 2, 8,2,3,4,5,6,7,8,1,2,3,1,5];	
+dataarr.push(btc_pr);
+dataarr.push(eth_pr);
+dataarr.push(alt_pr);	
+for (step = 0; step < 3; step++) {  
    	 //for each
 	//1.data 2.layout title 3.graph div id 	
-	var timearr = [1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27];
-	var dataarr = [5, 10, 2, 8,2,3,4,5,6,7,8,1,2,3,1,5,7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1];
+	
+	
 	layout.title = 'BTC';
 	trace1.x = timearr;
-	trace1.y = dataarr;	
+	trace1.y = dataarr[step];	
 	var data = [ trace1 ];
 // 	if(step/2==1){
 // 	  layout.shapes = [
