@@ -211,7 +211,7 @@ var trace1 = {
 //     }
 //   ];
 for (step = 0; step < div_cnt; step++) {  	
-	layout[step] = { 
+	layoutarr[step] = { 
 	  font: {size: 9},
 	  margin: {
 	    l: 25,
@@ -263,14 +263,14 @@ for (step = 0; step < 3; step++) {
 // 	  ];
 // 	}
         draw_hor_line(step,hor_line1[step][0],hor_line1[step][1]);
-	Plotly.newPlot('graph'+(step+1), data, layout[step], config );		
+	Plotly.newPlot('graph'+(step+1), data, layoutarr[step], config );		
 }
 	
 function draw_hor_line(step,number1,number2) {
   if( (!number1)||(number1==0) ){  //비어있음
-     layout[step].shapes = [];  
+     layoutarr[step].shapes = [];  
   }else{  //값이 있음
-     layout[step].shapes = [
+     layoutarr[step].shapes = [
 	    {
 		type: 'line',
 		xref: 'paper',
