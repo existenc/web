@@ -174,16 +174,16 @@ for (step = 0; step < row_num; step++) {
 <script>
 //common	
 var config = {responsive: true}
-var layout = { 
-  font: {size: 9},
-  margin: {
-    l: 25,
-    r: 25,
-    b: 25,
-    t: 45,
-    pad: 4
-  },
-};
+// var layout = { 
+//   font: {size: 9},
+//   margin: {
+//     l: 25,
+//     r: 25,
+//     b: 25,
+//     t: 45,
+//     pad: 4
+//   },
+// };
 var trace1 = {
   type: 'line',
 //   x: timearr,	
@@ -209,7 +209,18 @@ var trace1 = {
 //         }
 //     }
 //   ];
-
+for (step = 0; step < div_cnt; step++) {  	
+	layout[step] = { 
+	  font: {size: 9},
+	  margin: {
+	    l: 25,
+	    r: 25,
+	    b: 25,
+	    t: 45,
+	    pad: 4
+	  },
+	};
+}	
 	
 //for each item
 var step;
@@ -224,37 +235,7 @@ dataarr.push(btc_pr);
 dataarr.push(eth_pr);
 dataarr.push(alt_pr);	
 	
-	
-layout[0] = { 
-  font: {size: 9},
-  margin: {
-    l: 25,
-    r: 25,
-    b: 25,
-    t: 45,
-    pad: 4
-  },
-};
-layout[1] = { 
-  font: {size: 9},
-  margin: {
-    l: 25,
-    r: 25,
-    b: 25,
-    t: 45,
-    pad: 4
-  },
-};	
-layout[2] = { 
-  font: {size: 9},
-  margin: {
-    l: 25,
-    r: 25,
-    b: 25,
-    t: 45,
-    pad: 4
-  },
-};	
+
 for (step = 0; step < 3; step++) {  
    	 //for each
 	//1.data 2.layout title 3.graph div id 	
