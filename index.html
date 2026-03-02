@@ -1,30 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; }
-        button {
-            width: 100%; height: 100%; border: none;
-            background-color: #f0f0f0; font-size: 24px; cursor: pointer;
-            transition: background 0.2s;
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: #f0f0f0; }
+        #canvas { width: 100%; height: 100%; display: block; position: relative; cursor: pointer; }
+        .dot {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 0, 0.6);
+            border: 2px solid red;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            animation: ripple 0.6s linear;
         }
-        button:active { background-color: #ff4757; color: white; }
+        @keyframes ripple {
+            from { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+            to { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+        #info {
+            position: absolute; top: 20px; width: 100%; text-align: center;
+            font-family: sans-serif; pointer-events: none;
+        }
     </style>
 </head>
 <body>
-    <button id="testBtn" onclick="handleClick()">화면 전체가 버튼입니다.<br>클릭하면 반응합니다.</button>
+    <div id="info">
+        <h2>화면 아무데나 클릭하세요</h2>
+        <p id="coords">좌표: (0, 0)</p>
+    </div>
+    <div id="canvas" onclick="drawDot(event)"></div>
 
     <script>
-        function handleClick() {
-            const btn = document.getElementById('testBtn');
-            btn.style.backgroundColor = '#2ed573';
-            btn.innerHTML = '<h1>CLICKED! (isTrusted: ' + event.isTrusted + ')</h1>';
-            console.log('Clicked! isTrusted:', event.isTrusted);
-            setTimeout(() => {
-                btn.style.backgroundColor = '#f0f0f0';
-                btn.innerHTML = '화면 전체가 버튼입니다.<br>클릭하면 반응합니다.';
-            }, 1000);
+        function drawDot(e) {
+            const canvas = document.getElementById('canvas');
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            
+            // 클릭한 지점의 좌표 계산
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            dot.style.left = x + 'px';
+            dot.style.top = y + 'px';
+            
+            canvas.appendChild(dot);
+            
+            // 좌표 텍스트 업데이트
+            document.getElementById('coords').innerText = 
+                `최근 클릭 좌표: X=${x.toFixed(1)}, Y=${y.toFixed(1)} (isTrusted: ${e.isTrusted})`;
+
+            // 0.6초 후 요소 제거
+            setTimeout(() => dot.remove(), 600);
         }
     </script>
 </body>
