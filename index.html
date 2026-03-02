@@ -1,253 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head> 
-  <title>html_test</title>
-  <style>
-    div {
-        width: 100%;
-        height: 300px;
-        
-/*         border: 1px solid #000; */
-    }
-    div.col1 {
-        width: 20%;
-        float: left;
-        box-sizing: border-box;
-        
-        background: #dcdcdc;
-    }
-    div.col2 {
-        width: 20%;
-        float: left;
-        box-sizing: border-box;
-        
-        background: #fffaf0;
-    }
-    div.col3 {
-        width: 20%;
-        float: left;
-        box-sizing: border-box;
-        
-        background: #dcdcdc;
-    }
-    div.col4 {
-        width: 20%;
-        float: left;
-        box-sizing: border-box;
-        
-        background: #fffaf0;
-    }
-	  
-    div.col5 {
-        width: 20%;
-        float: left;
-        box-sizing: border-box;
-        
-        background: #dcdcdc;
-    }
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; }
+        button {
+            width: 100%; height: 100%; border: none;
+            background-color: #f0f0f0; font-size: 24px; cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:active { background-color: #ff4757; color: white; }
     </style>
-  
 </head>
 <body>
-    
-	  
+    <button id="testBtn" onclick="handleClick()">화면 전체가 버튼입니다.<br>클릭하면 반응합니다.</button>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyBGJNJX9QZ3Wenj59z5eXcHJYAH8KBPv6A",
-    authDomain: "myfirebase-4c4b9.firebaseapp.com",
-    databaseURL: "https://myfirebase-4c4b9.firebaseio.com",
-    projectId: "myfirebase-4c4b9",
-    storageBucket: "myfirebase-4c4b9.appspot.com",
-    messagingSenderId: "243418876581",
-    appId: "1:243418876581:web:26375ea5dd1831534fdb4c",
-    measurementId: "G-J4Q8VNFQH3"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>		  
-	
-<table border="1">
-   <tr>
-     <th>Month</th>
-     <th>Savings</th>
-   </tr>
-   <tr>
-     <td>January</td>
-     <td>$100</td>
-   </tr>
-</table>
-
-	  
-<script>
-var database = firebase.database();	
-firebase.database().ref("coin/morning_sec").once('value')
-  .then((dataSnapshot) => {
-    let desiredValue = dataSnapshot.val();
-    console.log("Desired value: ", desiredValue);
-  })
-  .catch((error) => {
-    console.log("An error occurred:zzz", error);
-  })
-	
-</script>
-
-<script>
-// 	var chatArea = document.getElementById("chatArea");
-// 	var database = firebase.database();
-// 	var tempdata;
-
-// 	document.addEventListener('DOMContentLoaded', function() {
-
-// 		database.ref("chat/room2").on('value', function(snapshot) {
-// 			  tempdata = snapshot.val();
-// 				console.log(snapshot.val());
-// 				showMsg(snapshot.val());
-// 		 });
-// 	});
-			
-
-// 			function showMsg(data){
-// 				console.log("되남",data.length);
-// 				for (let index = 0; index < data.length; index++) {
-// 					console.log(data[index].displayName,data[index].msg);
-// 				}
-// 			}			
-</script>
-			
-			
-	  
-<div id="div_graph">
-</div>
-
-<script>
-// auto gen div_graph child	
-var div_cnt = 44;   //THE NUMBER OF ITEM TO SHOW ON GRAPH
-var row_num = Math.ceil(div_cnt/5); //2
-var row_resi = div_cnt % 5; //4
-var step;
-for (step = 0; step < row_num; step++) {
-	  var div = document.createElement('div');
-	  div.setAttribute("id", "row"+(step+1));
-	  //div.className = 'col'+(step1+1);	
-	  document.getElementById('div_graph').appendChild(div);	
-	  if((step+1)==row_num){ //has less than 5 column
-		     var step1;
-		     for (step1 = 0; step1 < row_resi; step1++) {
-			     var div = document.createElement('div');
-			     div.setAttribute("id", "graph"+(step*5+step1+1));
-			     div.className = 'col'+(step1+1);	     		
-			     document.getElementById('row'+(step+1)).appendChild(div);
-	  	     }
-	  }
-	  else{  //has 5 column
-		     var step1;
-		     for (step1 = 0; step1 < 5; step1++) {
-			     var div = document.createElement('div');
-			     div.setAttribute("id", "graph"+(step*5+step1+1));
-			     div.className = 'col'+(step1+1);		
-			     document.getElementById('row'+(step+1)).appendChild(div);
-		     }
-	  }   
-		
-}	
-</script>	
-	
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script>
-//common	
-var config = {responsive: true}
-var trace1 = {
-  type: 'line',
-  marker: {
-      color: '#C8A2C8',
-      line: {
-          width: 2.5
-      }
-  }
-};
-var layoutarr = new Array(); 		
-for (step = 0; step < div_cnt; step++) {  	
-	layoutarr[step] = { 
-	  font: {size: 9},
-	  margin: {
-	    l: 25,
-	    r: 25,
-	    b: 25,
-	    t: 45,
-	    pad: 4
-	  },
-	};
-}	
-	
-//for each item
-var hor_line1 = [[1,2],[2,7], [0,0], [2,6],[2,7],[4,7],[2,7]];
-var timearr = [1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27];
-var dataarr = new Array(); 
-var btc_pr = [5, 10, 2, 8,2,3,4,5,6,7,8,1,2,3,1,5,7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1];
-var eth_pr = [4,5,6,7,8,1,2,3,1,5,7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1,5, 10, 2, 8,2,3];
-var alt_pr = [7,4,1,5,3,2,1,5,3,2,1,5,3,1,5,4,5,1,5, 10, 2, 8,2,3,4,5,6,7,8,1,2,3,1,5];	
-dataarr.push(btc_pr);
-dataarr.push(eth_pr);
-dataarr.push(alt_pr);	
-	
-var step;
-for (step = 0; step < 3; step++) {  
-   	 //for each
-	//1.data 2.layout title 3.graph div id 		
-	layoutarr[step].title = 'BTC';
-	trace1.x = timearr;
-	trace1.y = dataarr[step];	
-	var data = [ trace1 ];
-        draw_hor_line(step,hor_line1[step][0],hor_line1[step][1]);
-	Plotly.newPlot('graph'+(step+1), data, layoutarr[step], config );		
-}
-	
-function draw_hor_line(step,number1,number2) {
-  if( (!number1)||(number1==0) ){  //empty
-     layoutarr[step].shapes = [];  
-  }else{  //has value
-     layoutarr[step].shapes = [
-	    {
-		type: 'line',
-		xref: 'paper',
-		x0: 0,
-		y0: number1,
-		x1: 1,
-		y1: number1,
-		line:{
-		    color: 'rgb(255, 0, 0)',
-		    width: 2,
-		}
-	    },
-	    {
-		type: 'line',
-		xref: 'paper',
-		x0: 0,
-		y0: number2,
-		x1: 1,
-		y1: number2,
-		line:{
-		    color: 'rgb(255, 0, 0)',
-		    width: 2,
-		}
-	    } 
-	  ];
-  }
-}	
-</script>	
-	
+    <script>
+        function handleClick() {
+            const btn = document.getElementById('testBtn');
+            btn.style.backgroundColor = '#2ed573';
+            btn.innerHTML = '<h1>CLICKED! (isTrusted: ' + event.isTrusted + ')</h1>';
+            console.log('Clicked! isTrusted:', event.isTrusted);
+            setTimeout(() => {
+                btn.style.backgroundColor = '#f0f0f0';
+                btn.innerHTML = '화면 전체가 버튼입니다.<br>클릭하면 반응합니다.';
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
